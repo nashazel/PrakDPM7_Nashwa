@@ -1,20 +1,17 @@
 import { Link, Stack } from 'expo-router';
-import { StyleSheet } from 'react-native';
-
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { StyleSheet, View, Text } from 'react-native';
 import React from 'react';
 
 export default function NotFoundScreen() {
   return (
     <>
-      <Stack.Screen options={{ title: 'Oops!' }} />
-      <ThemedView style={styles.container}>
-        <ThemedText type="title">This screen doesn't exist.</ThemedText>
+      <Stack.Screen options={{ title: 'Page Not Found' }} />
+      <View style={styles.container}>
+        <Text style={styles.title}>Oops! This page doesn't exist.</Text>
         <Link href="/" style={styles.link}>
-          <ThemedText type="link">Go to home screen!</ThemedText>
+          <Text style={styles.linkText}>Go back to the home screen</Text>
         </Link>
-      </ThemedView>
+      </View>
     </>
   );
 }
@@ -25,9 +22,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
+    backgroundColor: '#ffffff', // White background for a clean look
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#333', // Dark text for contrast
+    textAlign: 'center',
+    marginBottom: 30,
   },
   link: {
-    marginTop: 15,
-    paddingVertical: 15,
+    marginTop: 25,
+    paddingVertical: 14,
+    paddingHorizontal: 25,
+    borderWidth: 1,
+    borderColor: '#007AFF', // Blue border for the link button
+    borderRadius: 12,
+    backgroundColor: '#E6F4FF', // Soft blue background
+    elevation: 5, // Slight shadow for button effect
+  },
+  linkText: {
+    color: '#007AFF', // Blue text to indicate it's a clickable link
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: '600',
   },
 });
